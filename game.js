@@ -22,6 +22,7 @@ function vuong(x,y) {
     // this.collorr="red";
     this.x=x;
     this.y=y;
+    this.z=this.x+this.y;
     this.vt=a.length;
     this.createavuong=function() {
         a.push(new Pixcel(this.x, this.y, "red"));
@@ -48,21 +49,49 @@ function vuong(x,y) {
         a[this.vt+2].y+=30;
         a[this.vt+3].y+=30;
     }
-    // this.runnnn=function () {
-    //     this.cleardraw();
-    //     this.y+=30;
-    //     this.drawvuong();
-    // }
+    this.moveleft=function () {
+        this.x-=30;
+        a[this.vt].x-=30;
+        a[this.vt+1].x-=30;
+        a[this.vt+2].x-=30;
+        a[this.vt+3].x-=30;
+    }
+    this.moveright=function () {
+        this.x+=30;
+        a[this.vt].x+=30;
+        a[this.vt+1].x+=30;
+        a[this.vt+2].x+=30;
+        a[this.vt+3].x+=30;
+    }
 
 }
-a1[0]=new vuong(0,0);
-a1[0].createavuong();
-setInterval(function (){
-    a1[0].cleardraw();
-    a1[0].rowi()
-    a1[0].drawvuong();
-    console.log(a1[0].y);
-},1000);
+a1[0]=new vuong(0,0);//                                Doan
+a1[0].createavuong();//
+setInterval(function (){//                       nay
+    a1[0].cleardraw();//                                 cho
+    a1[0].rowi() //
+    a1[0].drawvuong();//                                   chay
+    console.log(a1[0].z);//
+},1000);//                                           thu
 
+function hinh(event) {
+    switch (event.code) {
+        case "KeyA":
+            if(a1[0].x>=30){
+            a1[0].cleardraw();
+            a1[0].moveleft()
+            a1[0].drawvuong()
+            }
+            break;
+        case "KeyD":
+            if(a1[0].x<240){
+                a1[0].cleardraw();
+                a1[0].moveright();
+                a1[0].drawvuong();
+            }
+    }
+
+}
+document.addEventListener("keydown",hinh)
 
 // Ý tưởng: cho tất cả các pixcel cuối cùng vaò 1 mảng 2 chiều để tính cách sụt hố ăn điểm.
