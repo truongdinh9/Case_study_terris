@@ -40,7 +40,13 @@ function vuong(x,y) {
         a[this.vt+1].clearapixcel();
         a[this.vt+2].clearapixcel();
         a[this.vt+3].clearapixcel();
-
+    }
+    this.rowi=function () {
+        this.y+=30;
+        a[this.vt].y+=30;
+        a[this.vt+1].y+=30;
+        a[this.vt+2].y+=30;
+        a[this.vt+3].y+=30;
     }
     // this.runnnn=function () {
     //     this.cleardraw();
@@ -53,7 +59,7 @@ a1[0]=new vuong(0,0);
 a1[0].createavuong();
 setInterval(function (){
     a1[0].cleardraw();
-    a1[0].y+=30;
+    a1[0].rowi()
     a1[0].drawvuong();
     console.log(a1[0].y);
 },1000);
