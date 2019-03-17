@@ -7,7 +7,7 @@ let an= {
     maxleft : [],
     maxright : [],
     bandau:function() {
-        for (let i = 0; i < 18; i++) {
+        for (let i = 0; i < 19; i++) {
             an.mangan[i] = [];
             an.maxday[i] = 18;
             for (let j = 0; j < 10; j++) {
@@ -105,7 +105,7 @@ function vuong(x,y) {
 
 }
 function dieukienkhongroi(){
-    return an.mangan[a[0].y/30][a[0].x/30]===1||an.mangan[a[1].y/30][a[1].x/30]===1||an.mangan[a[2].y/30][a[2].x/30]===1||an.mangan[a[3].y/30][a[3].x/30]===1
+    return an.mangan[a[0].y/30+1][a[0].x/30+1]===1||an.mangan[a[1].y/30+1][a[1].x/30]===1||an.mangan[a[2].y/30+1][a[2].x/30]===1||an.mangan[a[3].y/30+1][a[3].x/30]===1
     ||a[0].y/30>=17||a[1].y/30>=17||a[2].y/30>=17||a[3].y/30>=17
 }
 
