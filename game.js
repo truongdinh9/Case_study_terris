@@ -1,7 +1,6 @@
 let pen=canvas1.getContext("2d");
 let a=[]//Mảng của các pixcel
 let a1=[]//Mảng của các hình vuông
-let vt=0;
 let an= {
     mangan :[],
     maxday : [],
@@ -15,10 +14,25 @@ let an= {
                 an.mangan[i][j] = 0
             }
         }
+        for (let j=0;j<10;j++){
+            an.maxleft=0
+            an.maxleft=10
+        }
     },
     setmaxday:function () {
         for(let j=0;j<10;j++){
-            for (let i=0;i<18;i++){
+            for (let i=0;i<18;i++){                     // Không hợp lý
+                if(an.mangan[i][j]===1){
+                    an.maxday[j]=i;
+                    break;
+                }
+            }
+        }
+
+    },
+    setmaxleft:function () {
+        for(let i=0;i<18;i++){
+            for (let j=0;j<10;j++){
                 if(an.mangan[i][j]===1){
                     an.maxday[j]=i;
                     break;
@@ -90,16 +104,20 @@ function vuong(x,y) {
     }
 
 }
+function dieukienkhongroi(){
+    return an.mangan[a[0].y/30][a[0].x/30]===1||an.mangan[a[1].y/30][a[1].x/30]===1||an.mangan[a[2].y/30][a[2].x/30]===1||an.mangan[a[3].y/30][a[3].x/30]===1
+    ||a[0].y/30>=17||a[1].y/30>=17||a[2].y/30>=17||a[3].y/30>=17
+}
+
+
+
+
+
 an.bandau();
 a1[0]=new vuong(0,0);//                                Doan
 a1[0].createavuong();//
 setInterval(function (){//                       nay
-    if(a1[0].y<((an.maxday[(a1[0].x/30)]-2)*30)){         //a1[0].y<((an.maxday[(a1[0].x/30)]-2)*30 điều kiện tạm thôi, cần phải sửa.
-    a1[0].cleardraw();//                                 cho
-    a1[0].rowi() //
-    a1[0].drawvuong()
-        console.log('ddd')
-    }else {
+    if(dieukienkhongroi()){         //a1[0].y<((an.maxday[(a1[0].x/30)]-2)*30 điều kiện tạm thôi, cần phải sửa.
         an.mangan[a[0].y/30][a[0].x/30]=1
         an.mangan[a[1].y/30][a[1].x/30]=1
         an.mangan[a[2].y/30][a[2].x/30]=1
@@ -107,6 +125,12 @@ setInterval(function (){//                       nay
         an.setmaxday();
         a1[0]=new vuong(0,0)
         a1[0].createavuong();
+    }else {
+
+        a1[0].cleardraw();//                                 cho
+        a1[0].rowi() //
+        a1[0].drawvuong()
+        console.log('ddd')
     }                               //                                   chay
 },500);//                                           thu
 
@@ -130,4 +154,3 @@ function Controls(event) {
 }
 document.addEventListener("keydown",Controls)
 
-// Ý tưởng: cho tất cả các pixcel cuối cùng vaò 1 mảng 2 chiều để tính cách sụt hố ăn điểm.
