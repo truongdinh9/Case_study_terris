@@ -19,6 +19,7 @@ function Pixcel(x,y,collorr) {
     this.y=y;
     this.colorr=collorr;
     this.createapixcel=function () {
+        pen.strokeStyle="white"
         pen.strokeRect(this.x,this.y,30,30);
         pen.fillStyle=this.colorr;
         pen.fillRect(this.x,this.y,30,30)
@@ -79,8 +80,14 @@ function dieukienngungroi(){
     return an.mangan[a[0].y/30+1][a[0].x/30+1]===1||an.mangan[a[1].y/30+1][a[1].x/30+1]===1||an.mangan[a[2].y/30+1][a[2].x/30+1]===1||an.mangan[a[3].y/30+1][a[3].x/30+1]===1
     ||a[0].y/30>=17||a[1].y/30>=17||a[2].y/30>=17||a[3].y/30>=17
 }
-
-
+function dieukienkosangphai(){
+    return an.mangan[a[0].y/30][a[0].x/30+2]===1||an.mangan[a[1].y/30][a[1].x/30+2]===1||an.mangan[a[2].y/30][a[2].x/30+2]===1||an.mangan[a[3].y/30][a[3].x/30+2]===1
+        ||a[0].x/30>=9||a[1].x/30>=9||a[2].x/30>=9||a[3].x/30>=9
+}
+function dieukienkosangtrai(){
+    return an.mangan[a[0].y/30][a[0].x/30]===1||an.mangan[a[1].y/30][a[1].x/30]===1||an.mangan[a[2].y/30][a[2].x/30]===1||an.mangan[a[3].y/30][a[3].x/30]===1
+        ||a[0].x/30<=0||a[1].x/30<=0||a[2].x/30<=0||a[3].x/30<=0
+}
 
 
 
@@ -107,14 +114,14 @@ setInterval(function (){//                       nay
 function Controls(event) {
     switch (event.code) {
         case "KeyA":
-            if(a1[0].x>=30){
+            if(!dieukienkosangtrai()){
             a1[0].cleardraw();
             a1[0].moveleft();
             a1[0].drawvuong()
             }
             break;
         case "KeyD":
-            if(a1[0].x<240){
+            if (!dieukienkosangphai()) {
                 a1[0].cleardraw();
                 a1[0].moveright();
                 a1[0].drawvuong();
