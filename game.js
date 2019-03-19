@@ -1,5 +1,6 @@
 var pen = canvas1.getContext("2d");
 let diem = 0;
+let timeout=500;
 let a = [];//Mảng của các pixcel
 let a1 = [];//Mảng của các hình vuông
 let an = {
@@ -24,7 +25,7 @@ function Pixcel(x, y, collorr) {
     this.y = y;
     this.colorr = collorr;
     this.createapixcel = function () {
-        pen.strokeStyle = "white"
+        pen.strokeStyle = "white";
         pen.strokeRect(this.x, this.y, 30, 30);
         pen.fillStyle = this.colorr;
         pen.fillRect(this.x, this.y, 30, 30)
@@ -73,27 +74,26 @@ function hinh2(x, y) {
             case 1:
 
                 if (an.mangan[a[0].y / 30][a[0].x / 30] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x - 30, a[0].y - 30, "green")
+                    a[1] = new Pixcel(a[0].x - 30, a[0].y - 30, "green");
                     a[2] = new Pixcel(a[0].x, a[0].y - 30, "green");
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y - 30, "green")
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y - 30, "green");
                     this.trangthai = 2;
                 }
                 break;
             case 2:
                 if (an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x + 30, a[0].y - 30, "green")
+                    a[1] = new Pixcel(a[0].x + 30, a[0].y - 30, "green");
                     a[2] = new Pixcel(a[0].x + 30, a[0].y, "green");
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green")
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green");
                     this.trangthai = 3;
                 }
                 break;
             default:
                 if (an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30] === 0) {
-                    a[1] = new Pixcel(a[0].x - 30, a[0].y + 30, "green")
-                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "green")
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green")
+                    a[1] = new Pixcel(a[0].x - 30, a[0].y + 30, "green");
+                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "green");
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green");
                     this.trangthai = 0;
-                    console.log("haha")
                 }
 
         }
@@ -125,7 +125,7 @@ function hinh3(x, y) {
 
                 if (an.mangan[a[0].y / 30][a[0].x / 30] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 2] === 0) {
                     a[2] = new Pixcel(a[0].x, a[0].y + 30, "blue");
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "blue")
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "blue");
                     this.trangthai = 0;
                 }
                 break;
@@ -158,7 +158,7 @@ function hinh4(x, y) {
 
                 if (an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30] === 0) {
                     a[2] = new Pixcel(a[0].x, a[0].y + 30, "blue");
-                    a[3] = new Pixcel(a[0].x - 30, a[0].y + 30, "blue")
+                    a[3] = new Pixcel(a[0].x - 30, a[0].y + 30, "blue");
                     this.trangthai = 0;
                 }
                 break;
@@ -182,8 +182,8 @@ function hinh6(x, y) {
         switch (this.trangthai) {
             case 0:
                 if (an.mangan[a[0].y / 30 + 1][a[0].x / 30] === 0 && an.mangan[a[0].y / 30][a[0].x / 30] === 0 && an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x - 30, a[0].y, "green")
-                    a[2] = new Pixcel(a[0].x - 30, a[0].y - 30, "green")
+                    a[1] = new Pixcel(a[0].x - 30, a[0].y, "green");
+                    a[2] = new Pixcel(a[0].x - 30, a[0].y - 30, "green");
                     a[3] = new Pixcel(a[0].x + 30, a[0].y, "green");
                     this.trangthai = 1;
                 }
@@ -191,25 +191,25 @@ function hinh6(x, y) {
             case 1:
 
                 if (an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0) {
-                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "green")
-                    a[2] = new Pixcel(a[0].x + 30, a[0].y - 30, "green")
-                    a[3] = new Pixcel(a[0].x, a[0].y + 30, "green")
+                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "green");
+                    a[2] = new Pixcel(a[0].x + 30, a[0].y - 30, "green");
+                    a[3] = new Pixcel(a[0].x, a[0].y + 30, "green");
                     this.trangthai = 2;
                 }
                 break;
             case 2:
                 if (an.mangan[a[0].y / 30 + 1][a[0].x / 30] === 0 && an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x + 30, a[0].y, "green")
+                    a[1] = new Pixcel(a[0].x + 30, a[0].y, "green");
                     a[2] = new Pixcel(a[0].x - 30, a[0].y, "green");
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green")
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green");
                     this.trangthai = 3;
                 }
                 break;
             default:
                 if (an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30] === 0) {
-                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "green")
-                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "green")
-                    a[3] = new Pixcel(a[0].x - 30, a[0].y + 30, "green")
+                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "green");
+                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "green");
+                    a[3] = new Pixcel(a[0].x - 30, a[0].y + 30, "green");
                     this.trangthai = 0;
                     console.log("haha")
                 }
@@ -234,8 +234,8 @@ function hinh7(x, y) {
         switch (this.trangthai) {
             case 0:
                 if (an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 1][a[0].x / 30] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30] === 0) {
-                    a[1] = new Pixcel(a[0].x - 30, a[0].y, "red")
-                    a[2] = new Pixcel(a[0].x + 30, a[0].y, "red")
+                    a[1] = new Pixcel(a[0].x - 30, a[0].y, "red");
+                    a[2] = new Pixcel(a[0].x + 30, a[0].y, "red");
                     a[3] = new Pixcel(a[0].x - 30, a[0].y + 30, "green");
                     this.trangthai = 1;
                 }
@@ -244,27 +244,27 @@ function hinh7(x, y) {
             case 1:
 
                 if (an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30] === 0) {
-                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "red")
-                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "red")
-                    a[3] = new Pixcel(a[0].x - 30, a[0].y - 30, "green")
+                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "red");
+                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "red");
+                    a[3] = new Pixcel(a[0].x - 30, a[0].y - 30, "green");
                     this.trangthai = 2;
                 }
                 break;
             //ok
             case 2:
                 if (an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 2] === 0 && an.mangan[a[0].y / 30 + 1][a[0].x / 30] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x + 30, a[0].y, "red")
+                    a[1] = new Pixcel(a[0].x + 30, a[0].y, "red");
                     a[2] = new Pixcel(a[0].x - 30, a[0].y, "red");
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y - 30, "green")
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y - 30, "green");
                     this.trangthai = 3;
                 }
 
                 break;
             default:
                 if (an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30][a[0].x / 30 + 1] === 0 && an.mangan[a[0].y / 30 + 2][a[0].x / 30 + 2] === 0) {
-                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "red")
-                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "red")
-                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green")
+                    a[1] = new Pixcel(a[0].x, a[0].y - 30, "red");
+                    a[2] = new Pixcel(a[0].x, a[0].y + 30, "red");
+                    a[3] = new Pixcel(a[0].x + 30, a[0].y + 30, "green");
                     this.trangthai = 0;
                     console.log("haha")
                 }
@@ -314,7 +314,7 @@ function draw() {
     a[1].createapixcel();
     a[2].createapixcel();
     a[3].createapixcel();
-};
+}
 cleardraw = function () {
     a[0].clearapixcel();
     a[1].clearapixcel();
@@ -327,7 +327,7 @@ function rowi() {
     a[1].y += 30;
     a[2].y += 30;
     a[3].y += 30;
-};
+}
 
 function moveleft() {
 
@@ -335,7 +335,7 @@ function moveleft() {
     a[1].x -= 30;
     a[2].x -= 30;
     a[3].x -= 30;
-};
+}
 
 function moveright() {
     a[0].x += 30;
@@ -363,27 +363,29 @@ function randoom() {
     a1[0] = [new hinh2(0, 0), new hinh3(0, 0), new hinh4(0, 0), new hinh5(0, 0), new hinh6(0, 0), new hinh7(0, 0), new vuong(0, 0)][Math.floor(Math.random() * 7)];
     a1[0].creathinh();
 }
+function draw2(t, z) {
+    pen.strokeStyle = "white";
+    pen.strokeRect(t, z, 30, 30);
+    pen.fillStyle = "red";                       // Hàm vẽ lại những cái đã xóa!
+    pen.fillRect(t, z, 30, 30)
+}
 
-an.bandau();
-a1[0] = new hinh5(0, 0);
-a1[0].creathinh();
-setInterval(function () {
-    if (dieukienngungroi()) {
-        an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 1] = 1;
-        an.mangan[a[1].y / 30 + 1][a[1].x / 30 + 1] = 1;
-        an.mangan[a[2].y / 30 + 1][a[2].x / 30 + 1] = 1;
-        an.mangan[a[3].y / 30 + 1][a[3].x / 30 + 1] = 1;
-        checkgameover();
-        diemso();
-        randoom();
-    } else {
-
-        cleardraw();//
-        rowi();//
-        draw();
-        console.log('ddd')
+function checkgameover() {
+    if (an.mangan[1][1] && an.mangan[1][2]) {
+        document.getElementById("gameover").innerHTML = '<h1>' + "Game over" + '<h1/>'
     }
-}, 500);//
+
+}
+
+function restart(){
+    document.getElementById("gameover").innerHTML ="";
+    an.bandau();
+    diem=0;
+    document.getElementById("diem").innerText = "Điểm của bạn: " + diem;
+    pen.clearRect(0, 0, 300, 540);
+
+}
+
 
 function Controls(event) {
     switch (event.code) {
@@ -426,7 +428,8 @@ function diemso() {
             if (an.mangan[i][j] !== 1) check = false
         }
         if (check) {
-            diem += 10
+            diem += 10;
+            timeout-=5;
             document.getElementById("diem").innerText = "Điểm của bạn: " + diem;
 
             for (let z = 1; z < 11; z++) {
@@ -437,14 +440,14 @@ function diemso() {
                     an.mangan[k][m] = an.mangan[k - 1][m]
                 }
             }
-            pen.clearRect(0, 0, 300, 540)
+            pen.clearRect(0, 0, 300, 540);
 
             for (let m = 18; m > 1; m--) {
                 for (let k = 1; k < 11; k++) {
                     if (an.mangan[m][k] === 1) {
-                        let z = (k - 1) * 30;
-                        let t = (m - 1) * 30;
-                        draw2(z, t)
+                        let t = (k - 1) * 30;
+                        let z = (m - 1) * 30;
+                        draw2(t, z)
                     }
                 }
             }
@@ -454,19 +457,24 @@ function diemso() {
 }
 
 document.getElementById("diem").innerText = "Điểm của bạn: " + diem;
-let t = 0;
-z = 510;
+an.bandau();
+randoom();
+setInterval(function () {
+    if (dieukienngungroi()) {
+        an.mangan[a[0].y / 30 + 1][a[0].x / 30 + 1] = 1;
+        an.mangan[a[1].y / 30 + 1][a[1].x / 30 + 1] = 1;
+        an.mangan[a[2].y / 30 + 1][a[2].x / 30 + 1] = 1;
+        an.mangan[a[3].y / 30 + 1][a[3].x / 30 + 1] = 1;
+        checkgameover();
+        diemso();
+        randoom();
+    } else {
 
-function draw2(t, z) {
-    pen.strokeStyle = "white";
-    pen.strokeRect(t, z, 30, 30)
-    pen.fillStyle = "red"
-    pen.fillRect(t, z, 30, 30)
-}
-
-function checkgameover() {
-    if (an.mangan[1][1] && an.mangan[1][2]) {
-        document.getElementById("gameover").innerHTML = '<h1>' + "Game over" + '<h1/>'
+        cleardraw();//
+        rowi();//
+        draw();
+        console.log('ddd')
     }
+}, timeout);
 
-}
+
